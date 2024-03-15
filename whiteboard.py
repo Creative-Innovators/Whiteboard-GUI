@@ -27,7 +27,8 @@ def change_line_width(value):
     global line_width
     line_width = int(value)
 
-#Creating the GUI
+
+#Creating the GUI with tkinter
 root = tk.Tk()
 root.title("Whiteboard App")
 
@@ -49,12 +50,15 @@ clear_button = tk.Button(controls_frame, text="Clear Canvas", command=lambda: ca
 color_button.pack(side="left", padx=5, pady=5)
 clear_button.pack(side="left", padx=5, pady=5)
 
+
 line_width_label = tk.Label(controls_frame, text="Line Width:")
 line_width_label.pack(side="left", padx=5, pady=5)
+
 
 line_width_slider = tk.Scale(controls_frame, from_=1, to=10, orient="horizontal", command=lambda val: change_line_width(val))
 line_width_slider.set(line_width)
 line_width_slider.pack(side="left", padx=5, pady=5)
+
 
 canvas.bind("<Button-1>", start_drawing)
 canvas.bind("<B1-Motion>", draw)
